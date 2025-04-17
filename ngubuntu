@@ -1,0 +1,14 @@
+FROM ubuntu
+
+# Install Nginx
+RUN apt update && apt install nginx -y
+
+# Create a basic HTML page for Nginx
+RUN echo "This is Nginx on Ubuntu" > /var/www/html/index.html
+
+# Expose port 80
+EXPOSE 80
+
+# Start Nginx in the foreground
+CMD ["nginx", "-g", "daemon off;"]
+
